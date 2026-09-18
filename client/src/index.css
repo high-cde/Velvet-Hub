@@ -1,0 +1,39 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px); --radius-md: calc(var(--radius) - 2px); --radius-lg: var(--radius); --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background); --color-foreground: var(--foreground); --color-card: var(--card); --color-card-foreground: var(--card-foreground); --color-popover: var(--popover); --color-popover-foreground: var(--popover-foreground); --color-primary: var(--primary); --color-primary-foreground: var(--primary-foreground); --color-secondary: var(--secondary); --color-secondary-foreground: var(--secondary-foreground); --color-muted: var(--muted); --color-muted-foreground: var(--muted-foreground); --color-accent: var(--accent); --color-accent-foreground: var(--accent-foreground); --color-destructive: var(--destructive); --color-destructive-foreground: var(--destructive-foreground); --color-border: var(--border); --color-input: var(--input); --color-ring: var(--ring);
+}
+
+:root { --radius: 1rem; --primary: #d7b46a; --primary-foreground: #100b0c; --background: #0b070d; --foreground: #f7f0f4; --card: #17101a; --card-foreground: #f7f0f4; --popover: #17101a; --popover-foreground: #f7f0f4; --secondary: #231727; --secondary-foreground: #f4e6ed; --muted: #2a1d2e; --muted-foreground: #ad9eae; --accent: #e2a0bd; --accent-foreground: #180d15; --destructive: #ed7b7b; --destructive-foreground: #22090b; --border: rgba(255,255,255,.11); --input: rgba(255,255,255,.13); --ring: #d7b46a; }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--background); color: var(--foreground); font-family: "Manrope", sans-serif; }
+button, a, input, textarea { font: inherit; }
+button:not(:disabled), a[href] { cursor: pointer; }
+::selection { background: rgba(226,160,189,.32); color: #fff; }
+:focus-visible { outline: 2px solid #d7b46a; outline-offset: 3px; }
+button:disabled { cursor: not-allowed; }
+.container { width: 100%; margin: 0 auto; padding: 0 1.25rem; }
+@media (min-width: 768px) { .container { max-width: 1240px; padding: 0 2rem; } }
+.display-font { font-family: "Playfair Display", serif; }
+.mono { font-family: "DM Mono", monospace; }
+.velvet-shell { min-height: 100vh; background: radial-gradient(circle at 80% 8%, rgba(116,45,91,.25), transparent 32rem), radial-gradient(circle at 10% 60%, rgba(215,180,106,.07), transparent 30rem), #0b070d; }
+.grain { position: relative; overflow: hidden; }
+.grain::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .14; mix-blend-mode: soft-light; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E"); }
+.live-dot { width: 8px; height: 8px; border-radius: 999px; background: #ef7185; box-shadow: 0 0 0 5px rgba(239,113,133,.12), 0 0 20px rgba(239,113,133,.65); }
+.room-card { transition: transform .22s cubic-bezier(.23,1,.32,1), border-color .22s ease, background .22s ease; }
+.room-card:hover { transform: translateY(-4px); border-color: rgba(215,180,106,.5); background: #1d1320; }
+.pressable { transition: transform .16s ease, filter .16s ease; }
+.pressable:active { transform: scale(.97); }
+.scrollbar-thin::-webkit-scrollbar { width: 4px; } .scrollbar-thin::-webkit-scrollbar-thumb { background: #4a3045; border-radius: 9px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+
+.rubina-heart { background: linear-gradient(145deg, #ff8caf 0%, #d52b70 42%, #6b0d3b 100%); border-radius: 50% 50% 50% 12%; transform: rotate(-45deg); border: 1px solid rgba(255, 180, 211, .55); }
+.rubina-heart > span { transform: rotate(45deg); }
+.rubina-panel { animation: rubina-in 180ms cubic-bezier(.23,1,.32,1); }
+@keyframes rubina-in { from { opacity: 0; transform: translateY(10px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@media (prefers-reduced-motion: reduce) { .rubina-panel { animation: none; } }
